@@ -18,18 +18,16 @@ const Product = ({product}) => {
     
             <CardMedia
             className={classes.media}
-            image={product.image}
-            title="Contemplative Reptile"
+            image={product.media.source}
+            title={product.name}
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
                {product.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {product.description}
-            </Typography>
+            <Typography dangerouslySetInnerHTML={{__html: product.description}} variant="body2" color="textSecondary" component="p" />
             <Typography  variant="h5" component="h2">
-               ${product.price}
+               {product.price.formatted_with_symbol}
             </Typography>
             </CardContent>
         <CardActions className={classes.cartIcon}>

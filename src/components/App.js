@@ -1,11 +1,13 @@
 import React from 'react'
+import Navbar from './Navbar/Navbar'
 import Products from './Products/Products'
 
 function App() {
     return (
-        <div>
+        <React.Fragment>
+            <Navbar />
             <Products />
-        </div>
+        </React.Fragment>
     )
 }
 

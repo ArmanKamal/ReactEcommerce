@@ -3,8 +3,10 @@ import Navbar from './Navbar/Navbar'
 import Products from './Products/Products'
 import {commerce} from '../lib/commerce'
 
+
 function App() {
     const [products, setProducts] = useState([])
+    const [cart, setCart] = useState({})
 
     const fetchProducts = () => {
         commerce.products.list()
@@ -13,10 +15,25 @@ function App() {
         })
     }
 
+    const fetchCart = async () => {
+        const cart = await commerce.cart.retrieve();
+        setCart(cart)
+
+        
+    }
+
+    const handleAddToCart = async (productId, quantity) => {
+            const item = await commerce.cart.add(productId, quantity)
+            setCart(item.cart);
+
+    }
+
+    console.log(cart)
     
     useEffect(() => {
       
          fetchProducts();
+         fetchCart();
         
     }, [])
 
@@ -24,8 +41,8 @@ function App() {
 
     return (
         <React.Fragment>
-            <Navbar />
-            <Products products={products}/>
+            <Navbar totalItems ={cart.total_items} />
+            <Products products={products} addToCart={handleAddToCart}/>
         </React.Fragment>
     )
 }

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Navbar from './Navbar/Navbar'
 import Products from './Products/Products'
 import {commerce} from '../lib/commerce'
+import ProductDeatil from './Products/Product/ProductDeatil'
 
 
 function App() {
@@ -41,8 +42,9 @@ function App() {
 
     return (
         <React.Fragment>
-            <Navbar totalItems ={cart.total_items} />
-            <Products products={products} addToCart={handleAddToCart}/>
+            {/* <Navbar totalItems ={cart.total_items} />
+            <Products products={products} addToCart={handleAddToCart}/> */}
+            <ProductDeatil />
         </React.Fragment>
     )
 }

@@ -3,7 +3,7 @@ import Navbar from './Navbar/Navbar'
 import Products from './Products/Products'
 import {commerce} from '../lib/commerce'
 import ProductDeatil from './Products/Product/ProductDeatil'
-
+import Cart from './Cart/Cart'
 
 function App() {
     const [products, setProducts] = useState([])
@@ -42,9 +42,9 @@ function App() {
 
     return (
         <React.Fragment>
-            {/* <Navbar totalItems ={cart.total_items} />
-            <Products products={products} addToCart={handleAddToCart}/> */}
-            <ProductDeatil />
+            <Navbar totalItems ={cart.total_items} />
+            {/* <Products products={products} addToCart={handleAddToCart}/>  */}
+            <Cart cart={cart} />
         </React.Fragment>
     )
 }

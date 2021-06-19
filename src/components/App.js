@@ -4,6 +4,7 @@ import Products from './Products/Products'
 import {commerce} from '../lib/commerce'
 import ProductDeatil from './Products/Product/ProductDeatil'
 import Cart from './Cart/Cart'
+import {BrowserRouter as Router , Switch, Route} from 'react-router-dom'
 
 function App() {
     const [products, setProducts] = useState([])
@@ -41,11 +42,21 @@ function App() {
 
 
     return (
-        <React.Fragment>
+        <Router>
             <Navbar totalItems ={cart.total_items} />
-            {/* <Products products={products} addToCart={handleAddToCart}/>  */}
-            <Cart cart={cart} />
-        </React.Fragment>
+            <Switch>
+                <Route exact path="/">
+                    <Products products={products} addToCart={handleAddToCart}/> 
+                </Route>
+                <Route exact path="/cart">
+                    <Cart cart={cart} />
+                </Route>
+             
+             
+            </Switch>
+          
+        </Router>
+      
     )
 }
 

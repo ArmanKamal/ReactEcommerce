@@ -68,6 +68,9 @@ function App() {
                 <Route exact path="/cart">
                     <Cart cart={cart} handleUpdateCart={handleUpdateCart} handleRemoveCart={handleRemoveCart} handleEmptyCart={handleEmptyCart} />
                 </Route>
+                <Route exact path="/product/{id}">
+                    <ProductDeatil />
+                </Route>
              
              
             </Switch>

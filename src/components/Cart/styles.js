@@ -26,4 +26,11 @@ export default makeStyles((theme) => ({
     width: '100%',
     justifyContent: 'space-between',
   },
+  cartDetail:{
+    marginTop:'20px',
+  
+  },
+  subButton:{
+    marginTop:"20px"
+  }
 }));
